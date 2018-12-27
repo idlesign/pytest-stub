@@ -1,0 +1,9 @@
+strictness: medium
+
+uses:
+    - django
+
+autodetect: yes
+
+ignore-paths:
+    - pytest_stub/tests
