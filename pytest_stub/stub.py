@@ -17,7 +17,7 @@ def stub():
             stub.apply({
                 'django.core.management.call_command': '[func]',
                 'django.core.management.base.BaseCommand': '[cls]',
-                'django.sub': {
+                'django.conf': {
                     'settings': object(),
                     'some': True,
                 }

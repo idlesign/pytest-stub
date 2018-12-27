@@ -49,7 +49,7 @@ Use ``stub`` fixture in your test functions, like this:
             'django.core.management.base.BaseCommand': '[cls]',
 
             # Stub multiple attributes in the same module with custom objects.
-            'django.sub': {
+            'django.conf': {
                 'settings': object(),
                 'some': True,
             },
