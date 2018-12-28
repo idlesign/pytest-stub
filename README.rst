@@ -29,7 +29,14 @@ Description
 This pytest plugin allows you to replace dependencies with stubs.
 
 It can be useful if you want to test some code using a dependency without actually having this dependency,
-for example if you're testing your, which uses another library parts.
+for example if you're testing your library, which uses some parts of another library.
+
+
+Requirements
+------------
+
+* Python 3
+* pytest >= 2.9.0
 
 
 How to use
