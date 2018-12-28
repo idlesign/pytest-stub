@@ -6,9 +6,6 @@ import sys
 _UNSET = set()
 
 
-PY2 = sys.version_info[0] == 2
-
-
 class StubProxy(object):
 
     def __init__(self):
@@ -26,39 +23,12 @@ class StubProxy(object):
 
         path = str(path)
 
-        if PY2:
-            # This splitting mess is for Py2 only where `from  x.y import z` requires `x` also to be in modules.
-            paths_ = []
-            path_current = ''
+        val_current = getattr(modules, path, _UNSET)
 
-            for chunk in path.split('.'):
-                path_current = ('%s.%s' % (path_current, chunk)).lstrip('.')
-                if path_current not in paths_:
-                    paths_.append(path_current)
+        if path not in overridden:
+            overridden[path] = val_current
 
-            for path_ in paths_:
-                is_target_path = (path_ == path)
-
-                val_current = modules.get(path_, _UNSET)
-
-                if path_ not in overridden:
-                    overridden[path_] = val_current
-
-                if isinstance(val_current, Stub):
-                    val_current.attrs.update(attrs)
-
-                modules[path_] = Stub(
-                    path_,
-                    attrs=attrs or {} if is_target_path else {}
-                )
-
-        else:
-            val_current = getattr(modules, path, _UNSET)
-
-            if path not in overridden:
-                overridden[path] = val_current
-
-            modules[path] = Stub(path, attrs=attrs or {})
+        modules[path] = Stub(path, attrs=attrs or {})
 
     def apply(self, rules):
         """Apply stubbing rules.
