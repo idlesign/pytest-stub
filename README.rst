@@ -2,7 +2,7 @@ pytest-stub
 ===========
 https://github.com/idlesign/pytest-stub
 
-|release| |lic| |ci| |coverage| |health|
+|release| |lic| |ci| |coverage|
 
 .. |release| image:: https://img.shields.io/pypi/v/pytest-stub.svg
     :target: https://pypi.python.org/pypi/pytest-stub
@@ -15,10 +15,6 @@ https://github.com/idlesign/pytest-stub
 
 .. |coverage| image:: https://img.shields.io/coveralls/idlesign/pytest-stub/master.svg
     :target: https://coveralls.io/r/idlesign/pytest-stub
-
-.. |health| image:: https://landscape.io/github/idlesign/pytest-stub/master/landscape.svg?style=flat
-    :target: https://landscape.io/github/idlesign/pytest-stub/master
-
 
 
 Description
