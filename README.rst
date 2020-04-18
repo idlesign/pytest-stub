@@ -31,7 +31,7 @@ for example if you're testing your library, which uses some parts of another lib
 Requirements
 ------------
 
-* Python 3.5+
+* Python 3.6+
 * pytest >= 2.9.0
 
 
