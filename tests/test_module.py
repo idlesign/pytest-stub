@@ -15,6 +15,7 @@ def test_1(stub):
     assert 'django.conf.settings' not in modules
 
     stub.apply({
+        'django.faked': '[mock]',
         'django.core.management.call_command': '[func]',
         'django.core.management.base.BaseCommand': '[cls]',
         'django.conf': {
@@ -39,3 +40,8 @@ def test_1(stub):
     assert isinstance(settings, Settings)
     assert callable(call_command)
     assert isinstance(BaseCommand, object)
+
+    # Test mocking.
+    from django import faked
+    faked.dummy = 1
+    assert faked.dummy == 1

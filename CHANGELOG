@@ -5,6 +5,7 @@ pytest-stub changelog
 Unreleased
 ----------
 ! Dropped QA for Python 3.4.
++ Added '[mock]' shortcut support.
 
 
 v0.1.0

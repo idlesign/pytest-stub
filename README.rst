@@ -55,6 +55,9 @@ Use ``stub`` fixture in your test functions, like this:
             # Replace `BaseCommand` with a generated class.
             'django.core.management.base.BaseCommand': '[cls]',
 
+            # Replace `dummy` with generated MagicMock.
+            'django.dummy': '[mock]',
+
             # Stub multiple attributes in the same module with custom objects.
             'django.conf': {
                 'settings': object(),

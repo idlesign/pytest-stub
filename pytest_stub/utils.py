@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 import sys
+from unittest.mock import MagicMock
 
 _UNSET = set()
 
@@ -73,5 +74,8 @@ class Stub(object):
 
         elif attr == '[func]':
             return lambda *args, **kwargs: None
+
+        elif attr == '[mock]':
+            return MagicMock()
 
         return attr
