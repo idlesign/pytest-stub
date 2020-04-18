@@ -16,7 +16,12 @@ class StubProxy(object):
         overridden = self._overridden
 
         if not isinstance(attrs, dict):  # actual value
-            path, attr = path.rsplit('.', 1)
+            try:
+                path, attr = path.rsplit('.', 1)
+
+            except ValueError:
+                attr = '__module__'
+
             attrs = {attr: attrs}
 
         path = str(path)
@@ -64,7 +69,13 @@ class Stub(object):
         attr = self.attrs.get(name, None)
 
         if attr is None:
-            raise AttributeError('Path %s contain no %s attribute' % (self.path, name))
+            module_mock = self.attrs.get('__module__')
+
+            if module_mock is not None:
+                attr = module_mock
+
+            else:
+                raise AttributeError('Path %s contain no %s attribute' % (self.path, name))
 
         if attr == '[cls]':
             return type(str('%sStub' % name), (object,), {})

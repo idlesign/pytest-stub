@@ -6,6 +6,7 @@ Unreleased
 ----------
 ! Dropped QA for Python 3.4.
 + Added '[mock]' shortcut support.
++ Now can stub entire modules (e.g. 'x' for 'import x').
 
 
 v0.1.0

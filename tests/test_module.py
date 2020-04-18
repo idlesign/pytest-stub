@@ -1,4 +1,5 @@
 import sys
+from unittest.mock import MagicMock
 
 
 def test_1(stub):
@@ -15,6 +16,7 @@ def test_1(stub):
     assert 'django.conf.settings' not in modules
 
     stub.apply({
+        'virtualfakedlib': '[mock]',
         'django.faked': '[mock]',
         'django.core.management.call_command': '[func]',
         'django.core.management.base.BaseCommand': '[cls]',
@@ -45,3 +47,8 @@ def test_1(stub):
     from django import faked
     faked.dummy = 1
     assert faked.dummy == 1
+
+    # Test entire module stub.
+    import virtualfakedlib as vl
+    some = vl.virtual
+    assert isinstance(some, MagicMock)

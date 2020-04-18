@@ -54,6 +54,9 @@ Use ``stub`` fixture in your test functions, like this:
             # Replace `dummy` with generated MagicMock.
             'django.dummy': '[mock]',
 
+            # Replace entire `cv2` module.
+            'cv2': '[mock]',
+
             # Stub multiple attributes in the same module with custom objects.
             'django.conf': {
                 'settings': object(),

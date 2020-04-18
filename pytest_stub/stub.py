@@ -12,6 +12,7 @@ def stub():
         def test_django_related(stub):
 
             stub.apply({
+                'cv2': '[mock]',
                 'django.dummy': '[mock]',
                 'django.core.management.call_command': '[func]',
                 'django.core.management.base.BaseCommand': '[cls]',
