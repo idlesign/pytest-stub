@@ -2,8 +2,8 @@ pytest-stub changelog
 =====================
 
 
-Unreleased
-----------
+v1.0.0 [2020-04-18]
+-------------------
 ! Dropped QA for Python 3.4.
 + Added '[mock]' shortcut support.
 + Now can stub entire modules (e.g. 'x' for 'import x').
