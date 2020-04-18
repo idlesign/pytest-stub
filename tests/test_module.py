@@ -2,7 +2,7 @@ import sys
 from unittest.mock import MagicMock
 
 
-def test_1(stub):
+def test_basic(stub):
 
     from pytest_stub.utils import Stub
 

@@ -4,7 +4,7 @@ from unittest.mock import MagicMock
 _UNSET = set()
 
 
-class StubProxy(object):
+class StubProxy:
 
     def __init__(self):
         self._moules = sys.modules
@@ -59,7 +59,7 @@ class StubProxy(object):
                 modules[key] = val
 
 
-class Stub(object):
+class Stub:
 
     def __init__(self, path, attrs):
         self.path = path
