@@ -5,6 +5,18 @@ from unittest.mock import MagicMock
 _UNSET = set()
 
 
+def stub_global(rules: Dict[str, Any]):
+    """Applies stubs globally (not in fixture).
+
+    Useful in root conftest.py to patch dependencies before tests run.
+
+    :param rules:
+
+    """
+    proxy = StubProxy()
+    proxy.apply(rules=rules)
+
+
 class StubProxy:
 
     def __init__(self):
@@ -37,7 +49,7 @@ class StubProxy:
     def apply(self, rules: Dict[str, Any]):
         """Apply stubbing rules.
 
-        :param dict rules:
+        :param rules:
 
         """
         for path, attrs in rules.items():

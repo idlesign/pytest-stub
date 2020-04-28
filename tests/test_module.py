@@ -1,6 +1,18 @@
 import sys
 from unittest.mock import MagicMock
 
+from pytest_stub.toolbox import stub_global
+
+stub_global({
+    'cv2': '[mock_persist]',
+})
+
+
+def test_global_stub():
+    import cv2
+    cv2.dummy.return_value = 30
+    assert cv2.dummy() == 30
+
 
 def test_basic(stub):
 

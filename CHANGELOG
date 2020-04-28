@@ -5,6 +5,7 @@ pytest-stub changelog
 Unreleased
 ----------
 + Added '[mock_persist]' shortcut support.
++ Added 'stub_global()' for global stubbing.
 
 
 v1.0.0 [2020-04-18]

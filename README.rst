@@ -38,7 +38,8 @@ Requirements
 How to use
 ----------
 
-Use ``stub`` fixture in your test functions, like this:
+You can stub dependencies either with your own custom objects or you may instruct ``pytest-stub``
+to generate functions or classes for you. Use ``stub`` fixture in your test functions, like this:
 
 .. code-block:: python
 
@@ -68,6 +69,14 @@ Use ``stub`` fixture in your test functions, like this:
 
         })
 
+If we want to replace some dependency with a stub not in a fixture but globally, we can use ``stub_global()`` function
+in root ``conftest.py`` (this code will apply patch before tests, so tests will be safe to import code using dependencies).
 
-You can stub dependencies either with your own custom objects or you may instruct ``pytest-stub``
-to generate functions or classes for you.
+.. code-block:: python
+
+    from pytest_stub.toolbox import stub_global
+
+    stub_global({
+        'cv2': '[mock_persist]',
+    })
+
