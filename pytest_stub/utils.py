@@ -76,7 +76,7 @@ class Stub:
                 attr = module_mock
 
             else:
-                raise AttributeError('Path %s contain no %s attribute' % (self.path, name))
+                raise AttributeError('Path %s contains no %s attribute' % (self.path, name))
 
         if attr == '[cls]':
             return type(str('%sStub' % name), (object,), {})
@@ -86,5 +86,10 @@ class Stub:
 
         elif attr == '[mock]':
             return MagicMock()
+
+        elif attr == '[mock_persist]':
+            mock = MagicMock()
+            self.attrs[name] = mock
+            return mock
 
         return attr

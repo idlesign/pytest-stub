@@ -57,6 +57,9 @@ Use ``stub`` fixture in your test functions, like this:
             # Replace entire `cv2` module.
             'cv2': '[mock]',
 
+            # Sometimes we need just a persistent (always the same) magic mock.
+            'numpy': '[mock_persist]',
+
             # Stub multiple attributes in the same module with custom objects.
             'django.conf': {
                 'settings': object(),

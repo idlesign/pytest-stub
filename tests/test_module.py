@@ -17,6 +17,7 @@ def test_basic(stub):
 
     stub.apply({
         'virtualfakedlib': '[mock]',
+        'virtualfakedstatic': '[mock_persist]',
         'django.faked': '[mock]',
         'django.core.management.call_command': '[func]',
         'django.core.management.base.BaseCommand': '[cls]',
@@ -52,3 +53,10 @@ def test_basic(stub):
     import virtualfakedlib as vl
     some = vl.virtual
     assert isinstance(some, MagicMock)
+    assert vl.virtual is not vl.virtual  # Mock regenerated
+
+    # Test static mock
+    import virtualfakedstatic as vl_persist
+    some = vl_persist.virtual
+    assert isinstance(some, MagicMock)
+    assert vl_persist.virtual is vl_persist.virtual  # Mock persistent
