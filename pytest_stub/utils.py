@@ -7,12 +7,12 @@ _UNSET = set()
 class StubProxy:
 
     def __init__(self):
-        self._moules = sys.modules
+        self._modules = sys.modules
         self._overridden = {}
 
     def _set(self, path, attrs):
 
-        modules = self._moules
+        modules = self._modules
         overridden = self._overridden
 
         if not isinstance(attrs, dict):  # actual value
@@ -45,7 +45,7 @@ class StubProxy:
     def restore_initial(self):
         """Restore initial modules."""
 
-        modules = self._moules
+        modules = self._modules
         unset = _UNSET
 
         for key, val in self._overridden.items():
