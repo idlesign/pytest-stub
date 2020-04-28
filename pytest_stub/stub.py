@@ -1,10 +1,12 @@
+from typing import Generator
+
 import pytest
 
 from .utils import StubProxy
 
 
 @pytest.fixture
-def stub():
+def stub() -> Generator[StubProxy, None, None]:
     """Fixture allowing to temporarily override stub packages, modules and attributes.
 
     Example::
@@ -21,8 +23,6 @@ def stub():
                     'some': True,
                 }
             })
-
-    :rtype: SettingsProxy
 
     """
     proxy = StubProxy()

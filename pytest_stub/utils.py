@@ -1,4 +1,5 @@
 import sys
+from typing import Union, Dict, Any
 from unittest.mock import MagicMock
 
 _UNSET = set()
@@ -10,7 +11,7 @@ class StubProxy:
         self._modules = sys.modules
         self._overridden = {}
 
-    def _set(self, path, attrs):
+    def _set(self, path: str, attrs: Union[Dict[str, Any], Any]):
 
         modules = self._modules
         overridden = self._overridden
@@ -33,7 +34,7 @@ class StubProxy:
 
         modules[path] = Stub(path, attrs=attrs or {})
 
-    def apply(self, rules):
+    def apply(self, rules: Dict[str, Any]):
         """Apply stubbing rules.
 
         :param dict rules:
@@ -61,11 +62,11 @@ class StubProxy:
 
 class Stub:
 
-    def __init__(self, path, attrs):
+    def __init__(self, path: str, attrs: Dict[str, Any]):
         self.path = path
         self.attrs = attrs
 
-    def __getattr__(self, name):
+    def __getattr__(self, name: str):
         attr = self.attrs.get(name, None)
 
         if attr is None:
