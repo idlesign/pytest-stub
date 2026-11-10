@@ -88,10 +88,10 @@ class Stub:
                 attr = module_mock
 
             else:
-                raise AttributeError('Path %s contains no %s attribute' % (self.path, name))
+                raise AttributeError(f'Path {self.path} contains no {name} attribute')
 
         if attr == '[cls]':
-            return type(str('%sStub' % name), (object,), {})
+            return type(f'{name}Stub', (object,), {})
 
         elif attr == '[func]':
             return lambda *args, **kwargs: None

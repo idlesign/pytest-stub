@@ -18,7 +18,7 @@ def test_basic(stub):
 
     from pytest_stub.utils import Stub
 
-    class Settings(object):
+    class Settings:
         pass
 
     modules = sys.modules

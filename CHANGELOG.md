@@ -1,20 +1,13 @@
-pytest-stub changelog
-=====================
+# pytest-stub changelog
 
+### v1.1.0 [2020-04-28]
+* ++ Added '[mock_persist]' shortcut support.
+* ++ Added 'stub_global()' for global stubbing.
 
-v1.1.0 [2020-04-28]
--------------------
-+ Added '[mock_persist]' shortcut support.
-+ Added 'stub_global()' for global stubbing.
+### v1.0.0 [2020-04-18]
+* !! Dropped QA for Python 3.4.
+* ++ Added '[mock]' shortcut support.
+* ++ Now can stub entire modules (e.g. 'x' for 'import x').
 
-
-v1.0.0 [2020-04-18]
--------------------
-! Dropped QA for Python 3.4.
-+ Added '[mock]' shortcut support.
-+ Now can stub entire modules (e.g. 'x' for 'import x').
-
-
-v0.1.0
-------
-+ Basic functionality.
+### v0.1.0
+* ++ Basic functionality.
